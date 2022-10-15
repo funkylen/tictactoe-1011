@@ -21,17 +21,17 @@ buttons = [
 def victory_check():   
     if state[0][0]==state[1][1]==state[2][2] != None or state[2][0]==state[1][1]==state[0][2] != None:
         if state[1][1] == SIGN_X:
-            result = messagebox.showinfo("Game Over", "!!!X WON!!!")
+            result = messagebox.showinfo("Game Over", "!!!X WIN!!!")
         else:
-            result = messagebox.showinfo("Game Over", "!!!O WON!!!")
+            result = messagebox.showinfo("Game Over", "!!!O WIN!!!")
         sys.exit()    
             
     for i in range(3):
         if state[i][0]==state[i][1]==state[i][2] != None or state[0][i]==state[1][i]==state[2][i] != None:
             if state[i][i] == SIGN_X:
-                result = messagebox.showinfo("Game Over", "!!!X WON!!!")
+                result = messagebox.showinfo("Game Over", "!!!X WIN!!!")
             else:
-                result = messagebox.showinfo("Game Over", "!!!O WON!!!")
+                result = messagebox.showinfo("Game Over", "!!!O WIN!!!")
             sys.exit()
                      
     if noneCounter() == 0:
