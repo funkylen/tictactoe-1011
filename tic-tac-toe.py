@@ -49,13 +49,14 @@ def noneCounter():
 def click(i,j):
     current_sign = SIGN_O if noneCounter() % 2 == 0 else SIGN_X
     title_sign = SIGN_O if current_sign == SIGN_X else SIGN_X    
-    
-    title = Label(gui, text= f'Ходит {title_sign}', font= ("Arial", 11, "bold")).grid(row= 3, column= 1)
-    gui.update()
 
     buttons[i][j].configure(text = current_sign)
     buttons[i][j]["state"] = DISABLED
     state[i][j] = current_sign
+    
+    if noneCounter() > 0:
+        title = Label(gui, text= f'Ходит {title_sign}', font= ("Arial", 11, "bold")).grid(row= 3, column= 1)
+        gui.update()
     
     victory_check()
     
