@@ -1,5 +1,4 @@
 запустить файлик tic-tac-toe.py
 
 
-
-https://user-images.githubusercontent.com/57140304/196763274-613b38f6-a172-4517-96db-aa9ce9e2e2fd.mp4
+https://user-images.githubusercontent.com/57140304/196764222-7456387e-85f4-47c5-a4b1-bde2c17c46da.mp4
