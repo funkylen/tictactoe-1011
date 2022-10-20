@@ -9,6 +9,31 @@ state = [
     [None, None, None],
 ]
 
+def check_win(state):
+    if (state[0][0] == state[0][1] == state[0][2]) and state[0][0] != None:
+        print('Победил игрок ' + str(state[0][0]))
+        return True
+    elif (state[1][0] == state[1][1] == state[1][2]) and state[1][0] != None:
+        print('Победил игрок ' + str(state[1][0]))
+        return True
+    elif (state[2][0] == state[2][1] == state[2][2]) and state[2][0] != None:
+        print('Победил игрок ' + str(state[2][0]))
+        return True
+    elif (state[0][0] == state[1][0] == state[2][0]) and state[0][0] != None:
+        print('Победил игрок ' + str(state[0][0]))
+        return True
+    elif (state[0][1] == state[1][1] == state[2][1]) and state[0][1] != None:
+        print('Победил игрок ' + str(state[0][1]))
+        return True
+    elif (state[0][2] == state[1][2] == state[2][2]) and state[0][2] != None:
+        print('Победил игрок ' + str(state[0][2]))
+        return True
+    elif (state[0][0] == state[1][1] == state[2][2]) and state[0][0] != None:
+        print('Победил игрок ' + str(state[0][0]))
+        return True
+    elif (state[0][2] == state[1][1] == state[2][0]) and state[0][2] != None:
+        print('Победил игрок ' + str(state[0][2]))
+        return True
 
 def check_index(index):
     min_value = 0
@@ -42,3 +67,8 @@ def start():
 
         else:
             print('Неправильное значение столбца или строки')
+
+        if check_win(state) == True:
+            return
+        elif steps == 0:
+            print('Ничья')
