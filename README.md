@@ -1,3 +1,3 @@
-Для начала игры нужно запустить start.py в папке scripts.
+Прейдите в tictatoe/scripts и для начала игры запустите start.py.
 
 Ссылка на видео с работоспособностью программы:https://disk.yandex.ru/i/pxVQS144jamGjw
