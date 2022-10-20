@@ -70,5 +70,5 @@ def start():
 
         if check_win(state) == True:
             return
-        if steps == 0:
+        elif steps == 0:
             print('Ничья')
