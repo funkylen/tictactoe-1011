@@ -26,25 +26,21 @@ def noneCounter():
     return steps
 
 
-def victory_check(current_sign):   
+def clean_buttons():
+    for i in range(3):
+        for j in range(3):
+            buttons[i][j].configure(text = "")
+            buttons[i][j]["state"] = NORMAL
+            state[i][j] = None
+
+
+def victory_check():   
     if state[0][0]==state[1][1]==state[2][2] != None or state[2][0]==state[1][1]==state[0][2] != None:
-        title = Label(gui, text= "Game Over", font= ("Arial", 9, "bold")).grid(row= 3, column= 1)
-        gui.update()
-        result = messagebox.showinfo("Game Over", "!!!X WIN!!!") if current_sign == SIGN_X else messagebox.showinfo("Game Over", "!!!O WIN!!!")
-        sys.exit()    
+        return True    
             
     for i in range(3):
         if state[i][0]==state[i][1]==state[i][2] != None or state[0][i]==state[1][i]==state[2][i] != None:
-            title = Label(gui, text= "Game Over", font= ("Arial", 9, "bold")).grid(row= 3, column= 1)
-            gui.update()
-            result = messagebox.showinfo("Game Over", "!!!X WIN!!!") if current_sign == SIGN_X else messagebox.showinfo("Game Over", "!!!O WIN!!!")
-            sys.exit()
-                     
-    if noneCounter() == 0:
-        title = Label(gui, text= "Game Over", font= ("Arial", 9, "bold")).grid(row= 3, column= 1)
-        gui.update()
-        result = messagebox.showinfo("Game Over", "DRAWN GAME")
-        sys.exit()
+            return True
     
 
 def click(i,j):
@@ -57,9 +53,16 @@ def click(i,j):
     
     if noneCounter() > 0:
         title = Label(gui, text= f'Ходит {title_sign}', font= ("Arial", 11, "bold")).grid(row= 3, column= 1)
-        gui.update()
-    
-    victory_check(current_sign)
+    else:
+        title = Label(gui, text= "Game Over", font= ("Arial", 9, "bold")).grid(row= 3, column= 1)
+        result = messagebox.showinfo("Game Over", "DRAWN GAME")
+        clean_buttons()
+
+    if victory_check() == True:
+        title = Label(gui, text= "Game Over", font= ("Arial", 9, "bold")).grid(row= 3, column= 1)
+        result = messagebox.showinfo("Game Over", f"!!!{current_sign} WIN!!!") 
+        clean_buttons()
+    gui.update()
     
 
 gui = Tk(className="tic-tac-toe")
