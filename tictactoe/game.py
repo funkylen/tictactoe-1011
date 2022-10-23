@@ -16,6 +16,18 @@ def check_index(index):
     return min_value <= index <= max_value
 
 
+def winner_check():
+    for position in range(len(state)):
+        if state[0][position] == state[1][position] == state[2][position] and state[0][position] is not None:
+            return True
+        if state[position][0] == state[position][1] == state[position][2] and state[position][0] is not None:
+            return True
+    if state[0][0] == state[1][1] == state[2][2] and state[0][0] is not None:
+        return True
+    if state[2][0] == state[1][1] == state[0][2] and state[2][0] is not None:
+        return True
+
+
 def start():
     steps = 9
 
@@ -42,3 +54,8 @@ def start():
 
         else:
             print('Неправильное значение столбца или строки')
+        if winner_check():
+            print(f'Победил {current_sign}')
+            break
+        if steps == 0:
+            print('draw')
